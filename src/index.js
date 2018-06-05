@@ -13,11 +13,12 @@ const DOM = document.getElementById("app");
 const renderDOM = () => {
     render(<App />, DOM);
 };
-  renderDOM();
+
+renderDOM();
+
 if (module.hot) {
     module.hot.accept([], () => {
         renderDOM()
     });
 }
 
-// TODO: dsaidaksd
