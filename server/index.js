@@ -16,7 +16,9 @@ const comliper = webpack(webpackConfig);
 const devMiddle = webpackDevMiddleware(comliper);
 
 const fs = require("fs")
+
 app.use(devMiddle);
+app.use(webpackHotMiddleware(comliper));
 
 // app.get("/", (req,res) =>{
 //     fs.readFile(path.resolve(process.cwd(), "src/index.html"), (err,file) =>{
@@ -40,6 +42,3 @@ const openBrowser = require("react-dev-utils/openBrowser")
 devMiddle.waitUntilValid(() =>{
     openBrowser(`http://${host}:${port}`)
 })
-
-app.use(devMiddle);
-app.use(webpackHotMiddleware(comliper));
